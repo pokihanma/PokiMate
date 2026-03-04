@@ -1,0 +1,17 @@
+from sqlmodel import create_engine, Session, SQLModel
+from app.config import get_settings
+
+engine = create_engine(
+    get_settings().database_url,
+    connect_args={"check_same_thread": False},
+    echo=False,
+)
+
+
+def init_db() -> None:
+    SQLModel.metadata.create_all(engine)
+
+
+def get_session():
+    with Session(engine) as session:
+        yield session

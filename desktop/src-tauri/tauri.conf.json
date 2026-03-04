@@ -1,0 +1,48 @@
+{
+  "productName": "Pokimate",
+  "version": "0.1.0",
+  "identifier": "com.pokimate.desktop",
+  "build": {
+    "beforeDevCommand": "",
+    "devUrl": "http://localhost:3000",
+    "beforeBuildCommand": "",
+    "frontendDist": "../web/out"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Pokimate",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": ""
+    },
+    "longDescription": "Pokimate personal finance and life management.",
+    "shortDescription": "Pokimate desktop",
+    "resources": [],
+    "copyright": "",
+    "category": "Finance",
+    "shortVersion": "",
+    "version": "0.1.0"
+  },
+  "plugins": {
+    "shell": {
+      "open": true
+    }
+  }
+}

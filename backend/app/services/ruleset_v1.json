@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "weights": {
+    "savings_rate": 0.25,
+    "debt_ratio": 0.25,
+    "emergency_fund": 0.20,
+    "budget_adherence": 0.20,
+    "income_stability": 0.10
+  },
+  "ranges": {
+    "savings_rate": { "excellent": 0.25, "good": 0.15, "fair": 0.05, "poor": 0 },
+    "debt_ratio_dti": { "excellent": 0.1, "good": 0.2, "fair": 0.35, "poor": 1.0 },
+    "emergency_months": { "excellent": 6, "good": 3, "fair": 1, "poor": 0 },
+    "budget_overspend_pct": { "excellent": 0, "good": 0.05, "fair": 0.15, "poor": 1.0 }
+  },
+  "default_emergency_months_target": 6
+}

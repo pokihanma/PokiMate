@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Pokimate",
+    "slug": "pokimate",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "pokimate",
+    "userInterfaceStyle": "dark",
+    "splash": { "backgroundColor": "#0f172a" },
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.pokimate.app" },
+    "android": { "adaptiveIcon": { "backgroundColor": "#0f172a" }, "package": "com.pokimate.app" },
+    "plugins": ["expo-secure-store"]
+  }
+}

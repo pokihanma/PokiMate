@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ASTRA_ENV=prod
+      - ASTRA_DB_DIR=/data
+      - ASTRA_JWT_SECRET=${ASTRA_JWT_SECRET:-change-me}
+      - ASTRA_CORS_ORIGINS=http://localhost:3000,http://web:3000
+      - ASTRA_AI_MODE=${ASTRA_AI_MODE:-OFF}
+      - ASTRA_OFFLINE_MODE=false
+    volumes:
+      - astra_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  web:
+    build: ./web
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_BASE=http://localhost:8000
+      - NEXT_PUBLIC_AI_MODE=${NEXT_PUBLIC_AI_MODE:-OFF}
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  ai_service:
+    build: ./ai_service
+    ports:
+      - "8001:8001"
+    profiles:
+      - ai
+    environment:
+      - AI_MODE=${ASTRA_AI_MODE:-OFF}
+
+volumes:
+  astra_data:
